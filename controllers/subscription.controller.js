@@ -21,7 +21,7 @@ export const createSubscription = async (req, res, next) => {
             retries: 0
         })
 
-        res.status(201).json({ success: true, data: { subscription, workflowRunId }});
+        res.status(201).json({ success: true, data: { subscription, workflowRunId } });
     } catch (error) {
         next(error);
     }
@@ -29,7 +29,6 @@ export const createSubscription = async (req, res, next) => {
 
 export const getUserSubscriptions = async (req, res, next) => {
     try {
-
         // Check if the user is the same as the one in the token
         if (req.user.id !== req.params.id) {
             const error = new Error('You are not the owner of this account');
